@@ -1,3 +1,4 @@
+
 let birthdays = {
     "Runaen": {
         "day": 21,
@@ -32,7 +33,7 @@ if(irp_month > 13) {
     irp_month = irp_month - 13;
     irp_year = irp_year + 1;
 }
-
+let irp_day_of_year = irp_month*28 + irp_day;
 let irp_eberron_year = irp_year- 1402;
 
 let irp_month_names = {
@@ -67,11 +68,17 @@ for(const name in birthdays) {
     let year_age = irp_year - birthdays[name].year;
     let month_age = irp_month - birthdays[name].month;
     let day_age = irp_day - birthdays[name].day;
+    let age_days = month_age*28 + day_age;
+    if (age_days < 0) {
+        age_days = age_days + 28*12;
+    }
+    let days_until_birthday = 28*12 - age_days;
     if (month_age === 0 && day_age === 0) {
         year_age = year_age + 1;
         birthday_var = true;
     }
-    let age = name + " is " + year_age + " years old.";
+    let age = name + " is " + year_age + " years old. Their birthday is in " + days_until_birthday + " days on " +
+        irp_month_names[birthdays[name].month] + " " + birthdays[name].day + "st.";
     if (birthday_var) {
         age = age + " Happy Birthday!";
     }
@@ -79,9 +86,10 @@ for(const name in birthdays) {
 }
 
 let irp_date = irp_day_names[irp_day] + ", " + irp_day + " " + irp_month_names[irp_month] + " " + irp_year + " FoH";
-let irp_eberron_date = irp_day_names[irp_day] + ", " + irp_day + " " + irp_month_names[irp_month] + " " + irp_eberron_year + " YK";
+let irp_eberron_date = irp_day_names[irp_day] + ", " + irp_day + " " + irp_month_names[irp_month] + " " +
+    irp_eberron_year + " YK";
 let output = irp_date + "<br>" + irp_eberron_date + "<br>" + birthday_output;
 console.log(output);
-var irp_date_element = document.getElementById("irp_date");
+const irp_date_element = document.getElementById("irp_date");
 console.log(irp_date_element);
 irp_date_element.innerHTML = output;
