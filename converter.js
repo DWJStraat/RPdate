@@ -85,8 +85,12 @@ for(const name in birthdays) {
     birthday_output = birthday_output + "<br>" + age;
 }
 
-let irp_date = irp_day_names[irp_day] + ", " + irp_day + " " + irp_month_names[irp_month] + " " + irp_year + " FoH";
-let irp_eberron_date = irp_day_names[irp_day] + ", " + irp_day + " " + irp_month_names[irp_month] + " " +
+let irp_day_no = irp_day
+while (irp_day_no > 7) {
+    irp_day_no = irp_day_no - 7
+}
+let irp_date = irp_day_names[irp_day_no] + ", " + irp_day + " " + irp_month_names[irp_month] + " " + irp_year + " FoH";
+let irp_eberron_date = irp_day_names[irp_day_no] + ", " + irp_day + " " + irp_month_names[irp_month] + " " +
     irp_eberron_year + " YK";
 let output = irp_date + "<br>" + irp_eberron_date + "<br>" + birthday_output;
 console.log(output);
