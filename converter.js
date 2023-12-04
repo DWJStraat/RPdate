@@ -11,6 +11,13 @@ let birthdays = {
         "year": 2402
     }
 }
+
+let holidays = {
+    "Ascension Day": {
+        "day": 13,
+        "month": 13
+    }
+}
 let date = new Date().toJSON().replace(/-/g,'/');
 
 console.log(date);
@@ -84,6 +91,17 @@ for(const name in birthdays) {
     }
     birthday_output = birthday_output + "<br>" + age;
 }
+let holiday_output = "";
+for (const day in holidays) {
+    let month_age = irp_month - holidays[day].month;
+    let day_age = irp_day - holidays[day].day;
+    let age_days = month_age * 28 + day_age;
+    if (age_days < 0) {
+        age_days = age_days + 28*12;
+    }
+    let days_until_event = 28*12 - age_days;
+    let message = days_until_birthday ' days until ' + day;
+    holiday_output = holiday_ouput + "<br>" + message
 
 let irp_day_no = irp_day
 while (irp_day_no > 7) {
@@ -92,7 +110,7 @@ while (irp_day_no > 7) {
 let irp_date = irp_day_names[irp_day_no] + ", " + irp_day + " " + irp_month_names[irp_month] + " " + irp_year + " FoH";
 let irp_eberron_date = irp_day_names[irp_day_no] + ", " + irp_day + " " + irp_month_names[irp_month] + " " +
     irp_eberron_year + " YK";
-let output = irp_date + "<br>" + irp_eberron_date + "<br>" + birthday_output;
+let output = irp_date + "<br>" + irp_eberron_date + "<br>" + birthday_output + "<br>" + holiday_output;
 console.log(output);
 const irp_date_element = document.getElementById("irp_date");
 console.log(irp_date_element);
