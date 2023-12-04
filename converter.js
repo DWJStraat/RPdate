@@ -100,7 +100,7 @@ for (const day in holidays) {
         age_days = age_days + 28 * 12;
     }
     let days_until_event = 28 * 12 - age_days;
-    let message = days_until_birthday + ' days until ' + day;
+    let message = days_until_event + ' days until ' + day;
     holiday_output = holiday_ouput + "<br>" + message
 
     let irp_day_no = irp_day
