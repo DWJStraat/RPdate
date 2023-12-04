@@ -101,13 +101,13 @@ for (const day in holidays) {
     }
     let days_until_event = 28 * 12 - age_days;
     let message = days_until_event + ' days until ' + day;
-    holiday_output = holiday_ouput + "<br>" + message
-
+    holiday_output = holiday_output + "<br>" + message
+}
     let irp_day_no = irp_day
     while (irp_day_no > 7) {
         irp_day_no = irp_day_no - 7
     }
-}
+
     let irp_date = irp_day_names[irp_day_no] + ", " + irp_day + " " + irp_month_names[irp_month] + " " + irp_year + " FoH";
     let irp_eberron_date = irp_day_names[irp_day_no] + ", " + irp_day + " " + irp_month_names[irp_month] + " " +
         irp_eberron_year + " YK";
