@@ -9,6 +9,16 @@ let birthdays = {
         "day": 12,
         "month": 1,
         "year": 2402
+    },
+    "Kto":{
+        "day": 5,
+        "month": 5,
+        "year": 2290
+    },
+    "Revalor/Faenmor":{
+        "day":17,
+        "month":12,
+        "year":2290
     }
 }
 
